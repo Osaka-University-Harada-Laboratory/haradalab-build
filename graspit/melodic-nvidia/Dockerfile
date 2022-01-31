@@ -98,6 +98,10 @@ RUN /bin/bash -c "cd /home/${DOCKER_USER}/ros_ws/src/graspit \
                   && cmake .. \
                   && make -j5"
 
+# chown
+RUN /bin/bash -c "cd /home/${DOCKER_USER}/ \
+                  && chown -R ${DOCKER_USER}:${DOCKER_USER} ros_ws"
+
 # make path to ROS packages
 RUN echo "source /home/${DOCKER_USER}/ros_ws/devel/setup.bash" >> /home/${DOCKER_USER}/.bashrc
 
