@@ -91,8 +91,8 @@ RUN /bin/bash -c "source /opt/ros/melodic/setup.bash \
                   && catkin build"
 
 # build graspit!
+ENV GRASPIT /home/${DOCKER_USER}/ros_ws/src/graspit
 RUN /bin/bash -c "cd /home/${DOCKER_USER}/ros_ws/src/graspit \
-                  && export GRASPIT=$PWD \
                   && mkdir build \
                   && cd build \
                   && cmake .. \
